@@ -10,6 +10,8 @@ export const cartSlice = createSlice({
     },
     reducers: {
         addTask: (state, action) => {
+            state.id = action.payload.id;
+            state.idDate = action.payload.idDate;
             state.myTask = action.payload.myTask;
             state.date = action.payload.date;
         },

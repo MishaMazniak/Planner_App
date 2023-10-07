@@ -1,13 +1,16 @@
 .my-tasks {
+  span {
+    color: green;
+    font-weight: bolder;
+  }
   .wrap-task {
     width: 300px;
-    min-height: 300px;
-    border: 1px solid blue;
+    min-height: 200px;
     border-radius: 15px;
+    box-shadow: 0 0 20px 5px rgb(5, 139, 184);
     .img-del,
     .img-done,
-    .img-edit,
-    .img-transfer {
+    .img-edit {
       width: 30px;
       height: 30px;
       &:hover {

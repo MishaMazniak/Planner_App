@@ -4,12 +4,9 @@ import NavBar from "./components/NavBar/NavBar"
 import NewTask from "./components/NewTask/NewTask"
 // import AllTasks from "./components/NavBar/AllTasks/AllTasks"
 import TaskToday from "./components/TaskToday/TaskToday"
-import {useDispatch} from "react-redux"
-import {addTask} from "./redux/task"
 import "./App.scss"
 
 function App() {
-  const dispatch = useDispatch()
   const [tasks, setTasks] = useState([])
   useEffect(() => {
     fetch(
@@ -22,20 +19,8 @@ function App() {
           tasksArrey.push({...data[key], id: key})
         }
         setTasks(tasksArrey)
-
-        tasksArrey.forEach((task) => {
-          dispatch(
-            addTask({
-              myTask: task.task,
-              date: task.date,
-              id: task.id,
-              idDate: task.idDate,
-              status: task.status
-            })
-          )
-        })
       })
-  }, [])
+  }, [tasks])
   return (
     <>
       <NavBar></NavBar>
