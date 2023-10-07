@@ -1,33 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react"
+import {useState, useEffect} from "react"
+import NavBar from "./components/NavBar/NavBar"
+import NewTask from "./components/NewTask/NewTask"
+// import AllTasks from "./components/NavBar/AllTasks/AllTasks"
+import TaskToday from "./components/TaskToday/TaskToday"
+import {useDispatch} from "react-redux"
+import {addTask} from "./redux/task"
+import "./App.scss"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const dispatch = useDispatch()
+  const [tasks, setTasks] = useState([])
+  useEffect(() => {
+    fetch(
+      "https://planner-cd1a2-default-rtdb.europe-west1.firebasedatabase.app/myTasks.json"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const tasksArrey = []
+        for (const key in data) {
+          tasksArrey.push({...data[key], id: key})
+        }
+        setTasks(tasksArrey)
 
+        tasksArrey.forEach((task) => {
+          dispatch(
+            addTask({
+              myTask: task.task,
+              date: task.date,
+              id: task.id,
+              idDate: task.idDate,
+              status: task.status
+            })
+          )
+        })
+      })
+  }, [])
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <NavBar></NavBar>
+      <NewTask></NewTask>
+      <TaskToday tasks={tasks}></TaskToday>
+      {/* <AllTasks></AllTasks> */}
     </>
   )
 }

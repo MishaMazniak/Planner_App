@@ -1,0 +1,23 @@
+.my-tasks {
+  .wrap-task {
+    width: 300px;
+    min-height: 300px;
+    border: 1px solid blue;
+    border-radius: 15px;
+    .img-del,
+    .img-done,
+    .img-edit,
+    .img-transfer {
+      width: 30px;
+      height: 30px;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+    }
+    .text-task {
+      text-align: left;
+      padding: 40px 20px;
+    }
+  }
+}

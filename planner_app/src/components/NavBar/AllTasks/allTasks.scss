@@ -1,0 +1,27 @@
+.wrap-tasks {
+  .block-tasks {
+    border: 1px solid blue;
+    border-radius: 15px;
+    margin-top: 20px;
+    .img-done {
+      width: 30px;
+      height: 30px;
+    }
+    .my-task {
+      border: 1px solid blue;
+      border-radius: 10px;
+      margin: 10px;
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+      .text-task {
+        p {
+          margin: 10px;
+        }
+      }
+      .img-done {
+        margin: 5px 5px;
+      }
+    }
+  }
+}
