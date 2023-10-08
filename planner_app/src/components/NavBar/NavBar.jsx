@@ -1,8 +1,18 @@
 import logo from "../../assets/planner-logo.png"
 import FindTask from "./FindTask/FindTask"
+import {useDispatch} from "react-redux"
+import {addDate} from "../../redux/date"
 import "./navBar.scss"
 
 function NavBar() {
+  const dispatch = useDispatch()
+  function allTasks() {
+    dispatch(
+      addDate({
+        date: ""
+      })
+    )
+  }
   return (
     <div className="my-nav-style border border-primary">
       <nav className="navbar navbar-expand-sm bg-body-tertiary">
@@ -27,6 +37,7 @@ function NavBar() {
               <button
                 className="btn btn-outline-primary mx-5 my-1"
                 aria-current="page"
+                onClick={allTasks}
               >
                 All Tasks
               </button>

@@ -4,14 +4,12 @@ export const cartSlice = createSlice({
     name: 'task',
     initialState: {
         id: 0,
-        idDate: 0,
         myTask: "",
         date: "",
     },
     reducers: {
         addTask: (state, action) => {
             state.id = action.payload.id;
-            state.idDate = action.payload.idDate;
             state.myTask = action.payload.myTask;
             state.date = action.payload.date;
         },

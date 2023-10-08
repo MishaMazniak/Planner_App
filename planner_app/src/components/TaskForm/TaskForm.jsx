@@ -1,7 +1,6 @@
-import "./newTask.scss"
+import "./taskForm.scss"
 import React from "react"
-import {useState} from "react"
-import {useEffect} from "react"
+import {useState, useEffect} from "react"
 import {useSelector} from "react-redux"
 import {useDispatch} from "react-redux"
 import {addTask} from "../../redux/task"
@@ -26,10 +25,6 @@ const NewTask = React.memo(() => {
     setNewIdTask(idTaskRedux)
   }, [editTaskRedux, editDateRedux])
 
-  // Create Id for task. Next i use this id for select tasks in page
-  const d = new Date(dateInput)
-  const idDate = d.getTime()
-
   // Submit for input form (add new task in database (Firebase))
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -40,7 +35,6 @@ const NewTask = React.memo(() => {
         body: JSON.stringify({
           task: taskInput,
           date: dateInput,
-          idDate: idDate,
           status: "dontDone"
         })
       }
@@ -53,9 +47,6 @@ const NewTask = React.memo(() => {
   // Edit data in task
   function correctTask(e) {
     e.preventDefault()
-    // Create new id for task
-    const newIdDate = new Date(editDateInput)
-    const idDate = newIdDate.getTime()
     fetch(
       `https://planner-cd1a2-default-rtdb.europe-west1.firebasedatabase.app/myTasks/${newIdTask}.json`,
       {
@@ -63,7 +54,6 @@ const NewTask = React.memo(() => {
         body: JSON.stringify({
           task: editTaskInput,
           date: editDateInput,
-          idDate: idDate,
           status: "dontDone"
         })
       }
@@ -77,8 +67,7 @@ const NewTask = React.memo(() => {
       addTask({
         myTask: "",
         date: "",
-        id: "",
-        idDate: ""
+        id: ""
       })
     )
   }

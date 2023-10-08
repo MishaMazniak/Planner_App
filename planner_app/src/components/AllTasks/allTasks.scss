@@ -1,0 +1,14 @@
+.task {
+  &:hover {
+    cursor: pointer;
+  }
+  .img-done {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+}

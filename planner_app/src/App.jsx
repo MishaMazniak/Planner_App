@@ -1,9 +1,8 @@
 import React from "react"
 import {useState, useEffect} from "react"
 import NavBar from "./components/NavBar/NavBar"
-import NewTask from "./components/NewTask/NewTask"
-// import AllTasks from "./components/NavBar/AllTasks/AllTasks"
-import TaskToday from "./components/TaskToday/TaskToday"
+import TaskForm from "./components/TaskForm/TaskForm"
+import AllTasks from "./components/AllTasks/AllTasks"
 import "./App.scss"
 
 function App() {
@@ -24,9 +23,8 @@ function App() {
   return (
     <>
       <NavBar></NavBar>
-      <NewTask></NewTask>
-      <TaskToday tasks={tasks}></TaskToday>
-      {/* <AllTasks></AllTasks> */}
+      <TaskForm></TaskForm>
+      <AllTasks tasks={tasks}></AllTasks>
     </>
   )
 }
