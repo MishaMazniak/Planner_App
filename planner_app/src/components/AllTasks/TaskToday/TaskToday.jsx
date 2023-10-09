@@ -3,7 +3,6 @@ import done from "../../../assets/done-icon.png"
 import dontDone from "../../../assets/dont-done-icon.png"
 import edit from "../../../assets/edit-icon.png"
 import React from "react"
-import {useEffect} from "react"
 import {useDispatch} from "react-redux"
 import {addTask} from "../../../redux/task"
 import {useSelector} from "react-redux"
@@ -13,26 +12,6 @@ function TaskToday(props) {
   const dispatch = useDispatch()
   const dateForSaveRedux = useSelector((state) => state.date.date)
 
-  useEffect(() => {
-    // Get date today
-    const today = new Date()
-    const year = today.getFullYear()
-    const month = String(today.getMonth() + 1).padStart(2, "0")
-    const day = String(today.getDate()).padStart(2, "0")
-    const formattedDate = `${year}-${month}-${day}`
-  }, [])
-  // Change color icon status
-  function statusTask(id) {
-    fetch(
-      `https://planner-cd1a2-default-rtdb.europe-west1.firebasedatabase.app/myTasks/${id}.json`,
-      {
-        method: "PATCH",
-        body: JSON.stringify({
-          status: "done"
-        })
-      }
-    )
-  }
   // Write data task in redux for next edit in input form
   function editTask(el) {
     dispatch(
@@ -60,9 +39,8 @@ function TaskToday(props) {
               <img
                 src={dontDone}
                 alt="img-dontDone"
-                id={el.id}
                 className="position-absolute top-0 start-0 img-done"
-                onClick={(e) => statusTask(e.target.id)}
+                onClick={() => props.statusTask(el)}
               ></img>
             ) : (
               <img

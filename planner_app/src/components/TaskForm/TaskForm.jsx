@@ -96,7 +96,7 @@ const NewTask = React.memo(() => {
             ></input>
           </div>
           <button
-            className="btn btn-primary col-md-1 col-sm-12 my-2"
+            className="btn btn-success col-md-1 col-sm-12 my-2"
             type="submit"
           >
             Add
@@ -124,7 +124,7 @@ const NewTask = React.memo(() => {
             ></input>
           </div>
           <button
-            className="btn btn-primary col-md-1 col-sm-12 my-2"
+            className="btn btn-success col-md-1 col-sm-12 my-2"
             type="submit"
           >
             Change

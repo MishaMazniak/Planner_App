@@ -7,6 +7,7 @@ import "./App.scss"
 
 function App() {
   const [tasks, setTasks] = useState([])
+  // Get all tasks from dataBase (Firebase)
   useEffect(() => {
     fetch(
       "https://planner-cd1a2-default-rtdb.europe-west1.firebasedatabase.app/myTasks.json"

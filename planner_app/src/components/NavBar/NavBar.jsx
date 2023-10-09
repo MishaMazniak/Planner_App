@@ -15,10 +15,10 @@ function NavBar() {
   }
   return (
     <div className="my-nav-style border border-primary">
-      <nav className="navbar navbar-expand-sm bg-body-tertiary">
+      <nav className="navbar navbar-expand-sm bg-body-tertiary my-nav-style">
         <div className="container-fluid">
-          <span className="navbar-brand me-5">
-            <img src={logo} alt="logo-shop" className="logo-planner"></img>
+          <span className="navbar-brand me-5 logo-planner">
+            <img src={logo} alt="logo-shop"></img>
             Planner
           </span>
           <button
@@ -32,17 +32,22 @@ function NavBar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <button
-                className="btn btn-outline-primary mx-5 my-1"
-                aria-current="page"
-                onClick={allTasks}
-              >
-                All Tasks
-              </button>
-              <div className="input-group">
-                <FindTask></FindTask>
+          <div
+            className="collapse navbar-collapse container my-nav-style-but"
+            id="navbarNavAltMarkup"
+          >
+            <div className="row col">
+              <div className="navbar-nav col-sm-5 offset-sm-2 col-md-10 offset-md-3 col-lg-8 offset-lg-6 ps-2 my-all">
+                <button
+                  className="btn btn-success my-3"
+                  aria-current="page"
+                  onClick={allTasks}
+                >
+                  All Tasks
+                </button>
+                <div className="d-flex py-3 px-3">
+                  <FindTask></FindTask>
+                </div>
               </div>
             </div>
           </div>
