@@ -3,6 +3,9 @@ import {useState, useEffect} from "react"
 import NavBar from "./components/NavBar/NavBar"
 import TaskForm from "./components/TaskForm/TaskForm"
 import AllTasks from "./components/AllTasks/AllTasks"
+import {Routes, Route} from "react-router-dom"
+import AboutUs from "./components/AboutUs"
+import NotFound from "./components/NotFound"
 import "./App.scss"
 
 function App() {
@@ -25,7 +28,15 @@ function App() {
     <>
       <NavBar></NavBar>
       <TaskForm></TaskForm>
-      <AllTasks tasks={tasks}></AllTasks>
+      <Routes>
+        <Route path="/" element={<AllTasks tasks={tasks}></AllTasks>}></Route>
+        <Route
+          path="/AllTasks/AllTasks"
+          element={<AllTasks tasks={tasks}></AllTasks>}
+        ></Route>
+        <Route path="/AboutUs" element={<AboutUs></AboutUs>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
+      </Routes>
     </>
   )
 }

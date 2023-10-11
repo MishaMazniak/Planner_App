@@ -7,7 +7,8 @@ import {addDate} from "../../../redux/date"
 function FindTask() {
   const dispatch = useDispatch()
   const [dateFind, setDateFind] = useState("")
-  // Sending the date on which the task will be searched
+
+  // Transfer date in AllTasks and TaskToday
   function addDateTask() {
     if (dateFind === "") alert("Select a date")
     else {
@@ -29,7 +30,7 @@ function FindTask() {
         onChange={(e) => setDateFind(e.target.value)}
       ></input>
       <button className="btn btn-success" onClick={addDateTask}>
-        Find a task ...
+        Find task ...
       </button>
     </>
   )

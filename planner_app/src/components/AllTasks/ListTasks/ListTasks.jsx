@@ -10,7 +10,7 @@ function ListTasks(props) {
   const sortedTasks = props.tasks.slice().sort((a, b) => {
     return new Date(a.date) - new Date(b.date)
   })
-  // Show the tasks on this day
+  // Transfer date in AllTasks and TaskToday
   function choosedDay(date) {
     dispatch(
       addDate({

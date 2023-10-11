@@ -10,9 +10,10 @@ import "./taskToday.scss"
 
 function TaskToday(props) {
   const dispatch = useDispatch()
+  // Date from input in FindTask and ListTasks for sorting tasks by date
   const dateForSaveRedux = useSelector((state) => state.date.date)
 
-  // Write data task in redux for next edit in input form
+  // Transfer data to input in TaskForm
   function editTask(el) {
     dispatch(
       addTask({
@@ -54,7 +55,6 @@ function TaskToday(props) {
             <img
               src={edit}
               alt="img-edit"
-              id={el.id}
               className="position-absolute bottom-0 start-50 translate-middle-x img-edit"
               onClick={() => editTask(el)}
             ></img>

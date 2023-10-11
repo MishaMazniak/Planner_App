@@ -5,9 +5,10 @@ import ListTasks from "./ListTasks/ListTasks"
 import {useSelector} from "react-redux"
 
 function AllTasks(props) {
+  // Date from input in FindTask or clicked in ListTasks
   const dateForChangePaigRedux = useSelector((state) => state.date.date)
 
-  // Delete task past clicked on "X"
+  // Delete task for page ListaTasks and TaskToday
   function delTask(id) {
     let askDel = confirm("You really want to delete task?")
     if (askDel) {

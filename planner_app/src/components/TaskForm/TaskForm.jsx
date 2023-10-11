@@ -7,7 +7,7 @@ import {addTask} from "../../redux/task"
 
 const NewTask = React.memo(() => {
   const dispatch = useDispatch()
-  // Start input data
+  // Start input data for new task
   const [taskInput, setTaskInput] = useState("")
   const [dateInput, setDateInput] = useState("")
   // Data task from redux
